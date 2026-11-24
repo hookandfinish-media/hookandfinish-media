@@ -9,6 +9,10 @@
 - Pinterest early pins (Nov 5–10, linked to the kit): 8–35 impressions each, 3–8 clicks each (20–50% click rate!). New pins from Nov 19 onward: 0 impressions after 1–4 days (Pinterest is slow with new pins).
 - TikTok: carousels ~637 views (Mistakes, 2.7/8 slides viewed) vs videos ~200.
 
+## Decisions
+- Nov 24: stopped slideshow Reels as the default. Back to story Reels (Ep7 Queen Victoria, Ep4 maths repost on IG).
+- Scheduled tasks were disabled on the account (no agent runs Nov 21–24).
+
 ## Open questions to test
 - Story Reel topics: which history angles win (heists/secrets > myths > famine?).
 - Does a CTA end card on story Reels reduce views?
