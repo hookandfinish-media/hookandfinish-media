@@ -13,6 +13,8 @@
 - Nov 24: stopped slideshow Reels as the default. Back to story Reels (Ep7 Queen Victoria, Ep4 maths repost on IG).
 - Scheduled tasks were disabled on the account (no agent runs Nov 21–24).
 
+- Nov 24: Younes says people stop at slide 2 of tip carousels (data: 2.7/8 slides). New TikTok format = QUIZ carousel (1080×1920, each slide reveals the last answer + asks the next question, ends with 'comment your score' + cheat sheet CTA). Generator: toolkit/quiz/q.py. First test: US→UK terms quiz, Nov 24.
+
 ## Open questions to test
 - Story Reel topics: which history angles win (heists/secrets > myths > famine?).
 - Does a CTA end card on story Reels reduce views?
