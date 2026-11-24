@@ -1,0 +1,10 @@
+import sys,os,shutil
+n=sys.argv[1]; Q=dict(l.split("=",1) for l in open(f"ep{n}.q").read().strip().split("\n"))
+D=f"/home/claude/ep5/e{n}"; os.makedirs(D+"/web",exist_ok=True)
+if not os.path.exists(D+"/node_modules"): os.symlink("/home/claude/show/node_modules",D+"/node_modules")
+shutil.copy("/home/claude/moon2/web/toon.js",D+"/web/toon.js"); shutil.copy(f"data{n}.json",D+"/data.json"); shutil.copy(f"voice{n}.wav",D+"/voice.wav")
+h=open("head.html").read()
+h=h.replace("Q1TEXT",Q["Q1"]).replace("Q2TEXT",Q["Q2"]).replace(">QA<",">"+Q["QA"]+"<").replace(">QB<",">"+Q["QB"]+"<")
+c=open("common.js").read().replace("SHEEPJS",open("sheep.js").read())
+open(D+"/web/index.html","w").write(h+c+open(f"ep{n}.js").read()+open("tail.js").read())
+open(D+"/film.py","w").write(open("/home/claude/moon2/film.py").read().replace('D="/home/claude/moon2"',f'D="{D}"'))
