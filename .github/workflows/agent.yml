@@ -1,0 +1,51 @@
+name: Growth agent
+on:
+  schedule:
+    - cron: "35 9 * * *"   # 09:35 Morocco time, every day
+  workflow_dispatch: {}      # "Run workflow" button for manual runs
+concurrency: { group: agent, cancel-in-progress: false }
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+      issues: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Toolkit
+        run: |
+          pip install -q playwright numpy pillow
+          python -m playwright install --with-deps chromium
+          bash toolkit/setup.sh
+      - name: Buffer MCP config
+        env: { BUFFER_API_KEY: "${{ secrets.BUFFER_API_KEY }}" }
+        run: |
+          python - <<'PY'
+          import json, os
+          json.dump({"mcpServers": {"buffer": {"type": "http", "url": "https://mcp.buffer.com/mcp",
+                     "headers": {"Authorization": "Bearer " + os.environ["BUFFER_API_KEY"]}}}},
+                    open("/tmp/mcp.json", "w"))
+          PY
+      - uses: anthropics/claude-code-action@v1
+        env: { GH_TOKEN: "${{ github.token }}" }
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            You are the autonomous growth agent for Hook & Finish. Today's date: run `date`.
+            Read AGENT.md (playbook, IDs, rules), state/learnings.md and the end of state/experiments.csv, then run the full loop in AGENT.md.
+            The toolkit is already installed (bash toolkit/setup.sh ran). You are running in GitHub Actions:
+            - Buffer tools are the mcp__buffer__* tools.
+            - TikTok pack: save the slides + caption.txt in tiktok/<YYYY-MM-DD>/ (they become public links).
+            - Commit state + media and `git push` to main (set git user to "Hook & Finish agent").
+            - Report: post it with `gh issue comment 1 --body-file report.md` (≤120 words, simple English, numbers, what won/lost, what changed, what's scheduled, link to today's TikTok folder https://github.com/hookandfinish-media/hookandfinish-media/tree/main/tiktok/<date>, and ask Younes to reply with TikTok numbers and any Gumroad sale).
+            Budget: keep the run efficient. Make a new narrated story Reel only every second day; otherwise reuse proven formats.
+          claude_args: |
+            --model claude-sonnet-5-5
+            --max-turns 150
+            --mcp-config /tmp/mcp.json
+            --allowedTools "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,mcp__buffer"
