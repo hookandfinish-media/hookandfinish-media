@@ -20,7 +20,7 @@ content (Instagram Reels, Pinterest pins, TikTok carousels) → free cheat sheet
 - **Never:** spend money or start ads; change bios, settings or prices; fake reviews; fake "real" crochet photos or AI hands shown as real; copyrighted footage; unverified facts.
 
 ## Running in GitHub Actions (daily, 09:35 Morocco)
-- Workflow `.github/workflows/agent.yml` runs this playbook every day. Replies from Younes (TikTok numbers, sales) arrive as comments on issue #1: read them with `gh issue view 1 --comments` at the start of each run and log them.
+- Workflow `.github/workflows/agent.yml` runs this playbook every day. Replies from Younes (TikTok numbers, sales) arrive as comments on the issue titled "Daily agent reports": read them with `gh issue view <number> --comments` at the start of each run and log them.
 
 ## Toolkit (run `bash toolkit/setup.sh` from the repo root first)
 - **Pins** (1000×1500): `/home/claude/cheat/gen.py` defines CSS, `pin_shell()`, `rows()` and `sym()`. `gifts.py` is a full example that renders pins with Playwright. Brand: cream #F4ECDF, plum #4A2440, rose #C27A74, Lora + Poppins, dashed stitched cards.

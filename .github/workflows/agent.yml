@@ -42,7 +42,7 @@ jobs:
             - Buffer tools are the mcp__buffer__* tools.
             - TikTok pack: save the slides + caption.txt in tiktok/<YYYY-MM-DD>/ (they become public links).
             - Commit state + media and `git push` to main (set git user to "Hook & Finish agent").
-            - Report: post it with `gh issue comment 1 --body-file report.md` (≤120 words, simple English, numbers, what won/lost, what changed, what's scheduled, link to today's TikTok folder https://github.com/hookandfinish-media/hookandfinish-media/tree/main/tiktok/<date>, and ask Younes to reply with TikTok numbers and any Gumroad sale).
+            - Report: find the open issue titled "Daily agent reports" (`gh issue list --search "Daily agent reports"`); if none exists, create it with `gh issue create --title "Daily agent reports" --body "Younes: reply here with TikTok numbers and any Gumroad sale."`. Then post the report with `gh issue comment <number> --body-file report.md` (≤120 words, simple English, numbers, what won/lost, what changed, what's scheduled, link to today's TikTok folder https://github.com/hookandfinish-media/hookandfinish-media/tree/main/tiktok/<date>, and ask Younes to reply with TikTok numbers and any Gumroad sale).
             Budget: keep the run efficient. Make a new narrated story Reel only every second day; otherwise reuse proven formats.
           claude_args: |
             --model claude-sonnet-5-5
