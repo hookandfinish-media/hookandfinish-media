@@ -15,6 +15,9 @@
 
 - Nov 24: Younes says people stop at slide 2 of tip carousels (data: 2.7/8 slides). New TikTok format = QUIZ carousel (1080×1920, each slide reveals the last answer + asks the next question, ends with 'comment your score' + cheat sheet CTA). Generator: toolkit/quiz/q.py. First test: US→UK terms quiz, Nov 24.
 
+- Nov 26–27: no posts (queue ran out, agent not running). Lesson: always keep 4+ days scheduled.
+- Nov 27: scheduled through Nov 30. IG: Ep8 coral reef (new), Ep1 silk repost (top performer test), Ep9 machines (new), Ep5 Aran repost. Pinterest pins 17–24, with pin 18 (7-day plan) linking to the KIT to test kit vs cheat-sheet clicks.
+
 ## Open questions to test
 - Story Reel topics: which history angles win (heists/secrets > myths > famine?).
 - Does a CTA end card on story Reels reduce views?
